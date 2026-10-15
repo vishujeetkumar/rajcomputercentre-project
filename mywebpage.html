@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishujeet Kumar | My Web Page</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px 16px;
+        background: #eff7f7;
+        color: #273b3e;
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.65;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: clamp(22px, 5vw, 42px);
+        background: #fff;
+        border: 1px solid #dce9e8;
+        border-radius: 18px;
+        box-shadow: 0 16px 42px rgb(23 68 67 / 10%);
+      }
+
+      header,
+      footer {
+        text-align: center;
+      }
+
+      header {
+        padding-bottom: 22px;
+        border-bottom: 1px solid #e3eceb;
+      }
+
+      h1 {
+        margin: 0;
+        color: #17645e;
+        font-size: clamp(1.8rem, 6vw, 2.7rem);
+      }
+
+      header p {
+        margin: 8px 0 0;
+        color: #627779;
+      }
+
+      section {
+        margin-top: 26px;
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        color: #17645e;
+        font-size: 1.25rem;
+      }
+
+      ul,
+      ol {
+        margin: 0;
+        padding-left: 24px;
+      }
+
+      li {
+        padding: 2px 0;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid #dfe9e8;
+        border-radius: 10px;
+      }
+
+      table {
+        width: 100%;
+        min-width: 420px;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      th,
+      td {
+        padding: 11px 14px;
+        border-bottom: 1px solid #e5eeed;
+      }
+
+      th {
+        background: #eaf5f3;
+        color: #17645e;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #f8fbfa;
+      }
+
+      footer {
+        margin-top: 32px;
+        padding-top: 20px;
+        border-top: 1px solid #e3eceb;
+        color: #627779;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Welcome to My Web Page</h1>
+        <p>Welcome to the world of HTML</p>
+      </header>
+
+      <section>
+        <h2>About Me</h2>
+        <p>
+          My name is <strong>Vishujeet Kumar</strong>. I am a computer student.
+          I am learning <em>HTML</em> and <u>web designing</u>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Computer Courses</h2>
+        <ol>
+          <li>ADCA</li>
+          <li>DCA</li>
+          <li>Tally Prime</li>
+          <li>Web Designing</li>
+          <li>Python</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Computer Parts</h2>
+        <ul>
+          <li>Keyboard</li>
+          <li>Mouse</li>
+          <li>Monitor</li>
+          <li>CPU</li>
+          <li>Printer</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Student Marks</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Roll No.</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Marks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Rahul Kumar</td><td>85</td></tr>
+              <tr><td>2</td><td>Aman Kumar</td><td>78</td></tr>
+              <tr><td>3</td><td>Priya Kumari</td><td>92</td></tr>
+              <tr><td>4</td><td>Rohit Kumar</td><td>80</td></tr>
+              <tr><td>5</td><td>Neha Kumari</td><td>88</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Text Formatting</h2>
+        <p>This is <strong>bold text</strong>.</p>
+        <p>This is <em>italic text</em>.</p>
+        <p>This is <u>underlined text</u>.</p>
+      </section>
+
+      <footer>
+        <p>Thank you for visiting my web page!</p>
+        <p>Developed by Vishujeet Kumar</p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New User Registration</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #1f2937;
+    }
+
+    form {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 36px 32px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      color: #1e3a8a;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    p {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+      width: 100%;
+      padding: 11px 14px;
+      margin-bottom: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background-color: #f9fafb;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0 24px 0;
+    }
+
+    .checkbox-group label {
+      margin-bottom: 0;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      accent-color: #2563eb;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      flex: 1;
+      padding: 11px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    input[type="submit"] {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    input[type="reset"] {
+      background-color: #f3f4f6;
+      color: #374151;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <form action="submit" method="POST">
+    <h1>New User</h1>
+    <p><b>Please fill in the following details to register:</b></p>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" placeholder="10-digit phone number" maxlength="10" pattern="[0-9]{10}" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Create a strong password" minlength="8" required>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="ageCheck" name="ageCheck" required>
+      <label for="ageCheck">I am 18+</label>
+    </div>
+
+    <div class="btn-group">
+      <input type="submit" value="Register">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</body>
+</html>

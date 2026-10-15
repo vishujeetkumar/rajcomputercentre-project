@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission | RTS</title>
+    <style>
+      /* ==========================================================================
+         1. Global Resets & Defaults
+         ========================================================================== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #eef2f6;
+        color: #333333;
+        line-height: 1.5;
+        padding: 24px 16px;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      /* ==========================================================================
+         2. Header Styling
+         ========================================================================== */
+      header {
+        background-color: #1b4d3e;
+        color: #ffffff;
+        padding: 24px 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      /* ==========================================================================
+         3. Form & Layout Container
+         ========================================================================== */
+      form {
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      fieldset {
+        border: 1px solid #dcdfe4;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: #fafbfc;
+      }
+
+      legend {
+        font-weight: 600;
+        font-size: 1rem;
+        color: #1b4d3e;
+        padding: 0 10px;
+      }
+
+      .sub-heading {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #495057;
+        margin: 16px 0 12px;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 4px;
+      }
+
+      /* Form Grid Layouts */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 20px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 20px;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      /* Form Fields */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #495057;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        background-color: #ffffff;
+        color: #212529;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: #1b4d3e;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.15);
+      }
+
+      input[type="file"] {
+        padding: 7px;
+        border: 1px dashed #ced4da;
+        border-radius: 6px;
+        background-color: #ffffff;
+        font-size: 0.85rem;
+      }
+
+      /* Radio Group */
+      .radio-options {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 6px;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+      }
+
+      /* Buttons */
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      button,
+      input[type="submit"],
+      input[type="reset"] {
+        padding: 11px 22px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      input[type="submit"] {
+        background-color: #1b4d3e;
+        color: #ffffff;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #14382d;
+      }
+
+      input[type="reset"] {
+        background-color: #e9ecef;
+        color: #495057;
+      }
+
+      input[type="reset"]:hover {
+        background-color: #dee2e6;
+      }
+
+      /* Footer */
+      footer {
+        padding: 16px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #6c757d;
+        border-top: 1px solid #dee2e6;
+      }
+
+      footer a {
+        color: #1b4d3e;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Breakpoint */
+      @media (max-width: 640px) {
+        .grid-2,
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .form-actions {
+          flex-direction: column-reverse;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Admission Form | RTS</h1>
+      </header>
+
+      <!-- Note: enctype="multipart/form-data" is mandatory for file uploads -->
+      <form action="admission.html" method="post" enctype="multipart/form-data">
+        <!-- Personal Information Section -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="fatherName">Father's Name *</label>
+              <input type="text" id="fatherName" name="fatherName" required />
+            </div>
+
+            <div class="form-group">
+              <label for="motherName">Mother's Name *</label>
+              <input type="text" id="motherName" name="motherName" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email ID *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="number">Phone Number *</label>
+              <input type="tel" id="number" name="number" maxlength="10" required />
+            </div>
+
+            <div class="form-group">
+              <label for="DOB">Date of Birth *</label>
+              <input type="date" id="DOB" name="DOB" required />
+            </div>
+
+            <div class="form-group">
+              <label>Gender *</label>
+              <div class="radio-options">
+                <label class="radio-option" for="male">
+                  <input type="radio" id="male" name="gender" value="male" required />
+                  Male
+                </label>
+                <label class="radio-option" for="female">
+                  <input type="radio" id="female" name="gender" value="female" />
+                  Female
+                </label>
+                <label class="radio-option" for="other">
+                  <input type="radio" id="other" name="gender" value="other" />
+                  Other
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bloodGroup">Blood Group *</label>
+              <select id="bloodGroup" name="bloodGroup" required>
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="B+">B+</option>
+                <option value="O+">O+</option>
+                <option value="AB+">AB+</option>
+                <option value="A-">A-</option>
+                <option value="B-">B-</option>
+                <option value="AB-">AB-</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="address">Address *</label>
+              <input type="text" id="address" name="address" required />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="HighestQualification">Highest Qualification *</label>
+              <select name="HighestQualification" id="HighestQualification" required>
+                <option value="">Select Qualification</option>
+                <option value="10thPassed">10th Passed</option>
+                <option value="12thPassed">12th Passed</option>
+                <option value="UG">Undergraduate (UG)</option>
+                <option value="PG">Postgraduate (PG)</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Educational Information Section -->
+        <fieldset>
+          <legend>Educational Information</legend>
+
+          <h3 class="sub-heading">10th Details</h3>
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="10thBoard">Board Name *</label>
+              <input type="text" id="10thBoard" name="10thBoard" required />
+            </div>
+
+            <div class="form-group">
+              <label for="10thSchool">School Name *</label>
+              <input type="text" id="10thSchool" name="10thSchool" required />
+            </div>
+
+            <div class="form-group">
+              <label for="10thMarks">Total Marks (200 - 500) *</label>
+              <input
+                type="number"
+                id="10thMarks"
+                name="10thMarks"
+                min="200"
+                max="500"
+                required
+              />
+            </div>
+          </div>
+
+          <h3 class="sub-heading">12th Details</h3>
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="12thBoard">Board Name *</label>
+              <input type="text" id="12thBoard" name="12thBoard" required />
+            </div>
+
+            <div class="form-group">
+              <label for="12thSchool">School Name *</label>
+              <input type="text" id="12thSchool" name="12thSchool" required />
+            </div>
+
+            <div class="form-group">
+              <label for="12thMarks">Total Marks (200 - 500) *</label>
+              <input
+                type="number"
+                id="12thMarks"
+                name="12thMarks"
+                min="200"
+                max="500"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="12thsubject">Subject Stream</label>
+              <input type="text" id="12thsubject" name="12thsubject" placeholder="e.g., Science, Commerce, Arts" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Course Selection Section -->
+        <fieldset>
+          <legend>Admission Details</legend>
+          <div class="form-group">
+            <label for="Course">Select Course *</label>
+            <select id="Course" name="Course" required>
+              <option value="">Select Course</option>
+              <option value="ADCA">ADCA</option>
+              <option value="DCA">DCA</option>
+              <option value="BASIC_COMPUTER">BASIC COMPUTER</option>
+              <option value="ENGLISH_TYPING">ENGLISH TYPING</option>
+              <option value="HINDI_TYPING">HINDI TYPING</option>
+              <option value="DTP">DTP</option>
+              <option value="TALLY">TALLY</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- Document Upload Section -->
+        <fieldset>
+          <legend>Document Uploads</legend>
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="photo">Passport Photo *</label>
+              <input type="file" id="photo" name="photo" accept="image/*" required />
+            </div>
+
+            <div class="form-group">
+              <label for="signature">Signature *</label>
+              <input type="file" id="signature" name="signature" accept="image/*" required />
+            </div>
+
+            <div class="form-group">
+              <label for="idProof">ID Proof Document *</label>
+              <input type="file" id="idProof" name="idProof" accept=".pdf,image/*" required />
+            </div>
+
+            <div class="form-group">
+              <label for="10thMarksheet">10th Marksheet *</label>
+              <input type="file" id="10thMarksheet" name="10thMarksheet" accept=".pdf,image/*" required />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="12thmarksheet">12th Marksheet *</label>
+              <input type="file" id="12thmarksheet" name="12thmarksheet" accept=".pdf,image/*" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <input type="reset" value="Reset Form" />
+          <input type="submit" value="Submit Application" />
+        </div>
+      </form>
+
+      <footer>
+        <p>
+          Developed by
+          <a href="https://vishujeetkumar.vasmustudy.site" target="_blank" rel="noopener noreferrer">Vishujeet kumar</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
